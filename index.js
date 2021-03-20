@@ -11,6 +11,24 @@ const tutorials = [
   'what is JSONP?'
 ];
 
+let master = []
+
 const titleCased = () => {
-  return tutorials
+  // separates each string into an array of words
+  let strings = tutorials.map(string => string.split(" "))
+  // iterates over each word and passes the changefirstletter function
+  strings.map(word => capitalizeFirstLetter(word)) 
+  return master
+}
+
+function capitalizeFirstLetter(word) {
+  let newCap = []
+  // goes through each letter in the word
+  word.map( function(char) {
+    // replaces first letter of each word to capitalize
+    char = char.replace(char[0], char[0].toUpperCase())
+    newCap.push(char)
+  })
+  let cap = newCap.join(" ")
+  master.push(cap)
 }
